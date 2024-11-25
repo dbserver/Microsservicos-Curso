@@ -398,13 +398,13 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Dia 01 - aula
-/01 - INTRODUCAO/01 - Apresentacao/
-/01 - INTRODUCAO/02 - Introducao  a Microservicos/
-/01 - INTRODUCAO/03 - Arquiteturas baseada em microservicos/
-/01 - INTRODUCAO/04 - Arquiteturas distribuidas/
-/01 - INTRODUCAO/05 - Breve conclusao sobre arquiteturas/
-/01 - INTRODUCAO/06 - Comunicacao Assincrona/
-/01 - INTRODUCAO/07 - Comunicacao e fluxo para microsevicos/
+# /01 - INTRODUCAO/01 - Apresentacao/
+# /01 - INTRODUCAO/02 - Introducao  a Microservicos/
+# /01 - INTRODUCAO/03 - Arquiteturas baseada em microservicos/
+# /01 - INTRODUCAO/04 - Arquiteturas distribuidas/
+# /01 - INTRODUCAO/05 - Breve conclusao sobre arquiteturas/
+# /01 - INTRODUCAO/06 - Comunicacao Assincrona/
+# /01 - INTRODUCAO/07 - Comunicacao e fluxo para microsevicos/
 /01 - INTRODUCAO/08 -  Exercicio/01 - professor.md
 /01 - INTRODUCAO/08 -  Exercicio/02 - professor.md
 
