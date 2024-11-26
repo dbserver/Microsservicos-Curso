@@ -26,6 +26,7 @@ Vantagens:
 Menor acoplamento: Os serviços podem evoluir de forma mais independente.
 Escalabilidade: Cada serviço pode ser escalado de maneira autônoma.
 Tolerância a falhas: A ausência de um ponto central reduz o risco de falhas sistêmicas.
+
 Desvantagens:
 
 Visibilidade do fluxo: É mais difícil ter uma visão geral dos processos do sistema.
