@@ -22,6 +22,7 @@ Além disso, a divisão entre bancos de dados facilita a organização dos dados
 Vamos considerar um comando para simular o cálculo de juros de um financiamento. O usuário envia os valores para calcular os juros e, ao processar o comando, o sistema aplica regras de negócio e grava as parcelas no banco de dados. Observe que o comando apenas processa e grava as informações, sem retornar nenhum dado diretamente ao usuário final. Se houver um erro, um evento é gerado para tratamento; caso contrário, o sistema registra as parcelas e conclui a operação. Essa divisão permite que o coração do sistema, onde as regras de negócios residem, seja robusto e focado em operações complexas.
 
 ```csharp
+// [POST] Controller -> CalcularJurosCommand -> Servico aplicacao -> servico dominio -> entidade -> repositorio -> banco
 public class CalcularJurosCommand 
 {
     public decimal Valor { get; set; }
@@ -41,6 +42,7 @@ public class CalcularJurosCommand
 Agora, imagine que o usuário queira consultar as parcelas de juros de seu financiamento. Esse pedido aciona uma query, uma operação exclusivamente de leitura que extrai os dados do banco de consultas e os apresenta de forma otimizada. Diferente dos comandos, as consultas são rápidas e diretas, focando apenas em fornecer os dados necessários, sem regras de negócio adicionais.
 
 ```csharp
+// [GET] Controller -> ConsultaParcelasQuery -> Banco dados
 public class ConsultaParcelasQuery 
 {
     public int FinanciamentoId { get; set; }
@@ -57,7 +59,9 @@ public class ConsultaParcelasQuery
 
 Para sincronizar dados entre bancos de comandos e consultas, é possível utilizar mecanismos como Dual Writes, Change Data Capture (CDC), Message Queues ou Pub/Sub Systems. Cada um desses mecanismos oferece vantagens e desvantagens dependendo das necessidades de consistência do sistema. Por exemplo, o CDC captura alterações em tempo real, enquanto Dual Writes grava os dados em ambos os bancos ao mesmo tempo. É importante considerar que essa abordagem pode introduzir alguma inconsistência temporária nos dados, que, embora seja insignificante em muitas aplicações, precisa ser avaliada conforme o impacto no sistema.
 
-![Coreografia](../../assets/CQRS-1.png) 
-![Coreografia](../../assets/CQRS-2.png) 
+![CQRS](../../assets/CQRS-1.png) 
+
+
+![CQRS](../../assets/CQRS-2.png) 
 
 Essa é a essência do CQRS e sua aplicação no trabalho com microsserviços: uma abordagem que separa claramente comandos e consultas, facilitando tanto a escalabilidade quanto a gestão da complexidade no sistema.
