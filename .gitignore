@@ -412,12 +412,12 @@ FodyWeavers.xsd
 # /02 - CONCEITOS/
 
 # Dia 02 - Aula
-/02 - CONCEITOS/01 - Provocacoes/Provovacoes.md
-/02 - CONCEITOS/02 - EDA/
-/02 - CONCEITOS/03 - CQRS/
+# /02 - CONCEITOS/01 - Provocacoes/Provovacoes.md
+# /02 - CONCEITOS/02 - EDA/
+# /02 - CONCEITOS/03 - CQRS/
 
 # Dia 02
-/03 - CONCEITOS 02/
+# /03 - CONCEITOS 02/
 /02 - CONCEITOS/01 - Provocacoes/Exercicio/professor.md
 /02 - CONCEITOS/04 - Exercicios/professor.md
 
