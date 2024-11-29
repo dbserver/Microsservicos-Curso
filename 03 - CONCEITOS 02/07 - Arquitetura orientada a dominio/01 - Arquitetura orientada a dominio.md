@@ -79,6 +79,11 @@ public class ProductRepository : IProductRepository
         _context.Products.Update(product);
         _context.SaveChanges();
     }
+
+    public DTOProductComCriterios GetByCriteria(ProductSearchCriteria criterio)
+    {
+        // implementacao
+    }
 }
 ```
 

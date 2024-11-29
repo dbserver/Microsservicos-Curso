@@ -1,4 +1,4 @@
-# Caracteristicas do DDD compartilhadas com qualquer arquitetura orientada a dominio
+# Caracteristicas do DDD compartilhadas com qualquer arquitetura orientada a domínio
 
 O que é DDD?
 
@@ -14,7 +14,7 @@ Segundo Eric Evans, criador do DDD, ele o definiu assim:
 
 Para desenvolver um bom software com vida longa, precisamos não apenas conhecer, mas entender sobre as regras de negócio que fazem parte daquele fluxo que será transformado em software. Então DDD define que exista o `Domain Expert`, que nada mais é do que a pessoa responsável por conhecer o negócio. Pode ser o PO do Scrum, Analista de Negócio ou como quiserem chamar, não existe um conflito aqui entre o papel na metodologia de desenvolvimento e o papel necessário para atender o DDD.
 
-### Bounded Context (Contexto delimitado) - Caracteristica essencial em arquitetura orientada a domínio
+### Bounded Context (Contexto delimitado) - Característica essencial em arquitetura orientada a domínio
 
 Quando estamos construindo grandes soluções, pode ocorrer de termos um domínio muito grande e a modelagem acaba por ficar complexa demais para se ter um único modelo unificado. Tendo em mente que cada área de negocio terá seu vocabulário (linguagem ubíqua) diferente dado o contexto do seu dia a dia isso se torna um problema ainda maior.
 
