@@ -1,0 +1,6 @@
+@ServicoLegado_HostAddress = http://localhost:5016
+
+GET {{ServicoLegado_HostAddress}}/Cliente/
+Accept: application/json
+
+###
