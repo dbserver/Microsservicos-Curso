@@ -2,14 +2,14 @@
 
 namespace Domain.CadastroClientePF.Entidades
 {
-    public class ContaPJ : IRaizDeAgregacao
+    public class ContaPF : IRaizDeAgregacao
     {
 		private string agencia;
 		private string matriculaGerente;
 		private DateTime dataAbertura;
 		private List<ClientePF> clientes = new List<ClientePF>();
 
-        public ContaPJ(CriadorContaPF criadorConta)
+        public ContaPF(CriadorContaPF criadorConta)
         {
             // Validações
 

@@ -1,0 +1,6 @@
+@LegadoService_HostAddress = http://localhost:5194
+
+POST {{ServicoLegado_HostAddress}}/Cliente/
+Accept: application/json
+
+###

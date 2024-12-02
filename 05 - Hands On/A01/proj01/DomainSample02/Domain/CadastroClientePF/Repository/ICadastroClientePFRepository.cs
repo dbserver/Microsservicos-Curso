@@ -5,6 +5,6 @@ namespace Domain.CadastroClientePF.Repository
 {
     public interface ICadastroClientePFRepository : IRepository<ContaPF>
     {
-        public void NovoCadastroConta(ContaPF conta);
+        public Task NovoCadastroConta(ContaPF conta);
     }
 }

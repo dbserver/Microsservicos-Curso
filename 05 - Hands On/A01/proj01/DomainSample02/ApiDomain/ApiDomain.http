@@ -1,0 +1,6 @@
+@ApiDomain_HostAddress = http://localhost:5298
+
+GET {{ApiDomain_HostAddress}}/ContaCadastro/
+Accept: application/json
+
+###

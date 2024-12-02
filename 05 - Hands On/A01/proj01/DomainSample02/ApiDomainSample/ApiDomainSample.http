@@ -1,0 +1,6 @@
+@ApiDomainSample_HostAddress = http://localhost:5190
+
+GET {{ApiDomainSample_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

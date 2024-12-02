@@ -8,6 +8,12 @@
 		private string cidade;
 		private string estado;
 
+        public string Cep { get => cep;  }
+        public string Endereco { get => endereco; }
+        public string Numero { get => numero;  }
+        public string Cidade { get => cidade;  }
+        public string Estado { get => estado;  }
+
         public EnderecoPF(string cep, string endereco, string numero, string cidade, string estado)
         {
             // Validações

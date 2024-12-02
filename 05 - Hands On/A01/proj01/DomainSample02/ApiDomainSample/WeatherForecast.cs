@@ -1,4 +1,4 @@
-namespace ServicoLegado
+namespace ApiDomainSample
 {
     public class WeatherForecast
     {
