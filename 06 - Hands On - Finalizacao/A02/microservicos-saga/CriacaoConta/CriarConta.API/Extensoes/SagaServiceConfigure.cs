@@ -8,20 +8,21 @@ namespace CriarConta.API.Extensoes
     {
         public static void AddMassTransitService(this IServiceCollection services)
         {
+
+            
+
             services.AddMassTransit(x =>
             {
+                x.AddSagaStateMachine<SolicitacaoContaStateMachine, SolicitacaoContaState>()
+                    .InMemoryRepository();
 
-                x.AddSaga<ContaPJSolicitada>();
-
-                // A Transport
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    //x.AddSagaStateMachine<SolicitacaoContaStateMachine, SolicitacaoContaState>()
-                    //           .InMemoryRepository();
+
                     cfg.ReceiveEndpoint("solicitar-conta", e =>
                     {
                         e.UseMessageRetry(r => r.Immediate(50));
-                       // e.StateMachineSaga<SolicitacaoContaState>(context);
+                       e.StateMachineSaga<SolicitacaoContaState>(context);
                     });
                 });
             });

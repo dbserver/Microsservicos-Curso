@@ -18,18 +18,20 @@ namespace CriarConta.API.Components
         public Event<ICriacaoContaNotificada> CriacaoContaNotificada { get; set; }
 
         // Estados do SAGA
-        public State CriacaoContaPJSolicitada { get; set; }
-        public State ValidacaoSolicitada { get; set; }
-        public State NotificacaoSolicitada { get; set; }
+        public State CriacaoContaPJSolicitada { get; }
+        public State ValidacaoSolicitada { get; }
+        public State NotificacaoSolicitada { get; }
 
         public SolicitacaoContaStateMachine()
         {
-            InstanceState(x => x.CurrentState);
+
+            InstanceState(x => x.CurrentState, CriacaoContaPJSolicitada, NotificacaoSolicitada, NotificacaoSolicitada);
 
             // Inicialização do estados do SAGA
             Event(() => ContaPJSolicitada, context => context.CorrelateById(m => m.Message.IdConta));
             Event(() => ContaPJCriada, context => context.CorrelateById(m => m.Message.IdConta));
             Event(() => ValidacaoOcorrida, context => context.CorrelateById(m => m.Message.IdConta));
+            Event(() => CriacaoContaNotificada, context => context.CorrelateById(m => m.Message.IdConta));
 
             // Inicialização do saga
             Initially(
@@ -39,7 +41,7 @@ namespace CriarConta.API.Components
                     context.Saga.CorrelationId = context.Message.IdConta;
                     context.Saga.Cpf = context.Message.CriarContaPJ.Cpf;
                 })
-                .SendAsync(new Uri("queue:criar-conta"), context => context.Init<CriarContaPJ>(new
+                .SendAsync(new Uri("queue:criar-conta-pj"), context => context.Init<CriarContaPJ>(new
                 {
                     IdConta = context.Saga.CorrelationId,
                     context.Message.CriarContaPJ.Cpf,
@@ -70,17 +72,19 @@ namespace CriarConta.API.Components
 
             During(NotificacaoSolicitada, 
                 When(CriacaoContaNotificada)
-                .Then(_ => Console.WriteLine("Conta cadastrada"))
+                .Then(_ => 
+                Console.WriteLine("Conta cadastrada"))
                 .Finalize()
             );
 
+            SetCompletedWhenFinalized();
         }
     }
 
     public class SolicitacaoContaState : SagaStateMachineInstance
     {
         public Guid CorrelationId { get; set; }
-        public string CurrentState { get; set; }
+        public int CurrentState { get; set; }
         public string Cpf { get; set; }
     }
 }

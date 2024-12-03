@@ -19,6 +19,7 @@
 
 
 
+
 Recomendações
 
 ## Video de mastransit, antigo e desatualizado, porém em pt-br com configuração completo
@@ -32,6 +33,9 @@ https://learn.microsoft.com/pt-br/dotnet/architecture/microservices/microservice
 
 ## Mastransit documentação
 https://masstransit.io/
+
+## Exemplo bem completo sobre microserviços com uso do mastransit
+https://medium.com/@ebubekirdinc/saga-orchestration-using-masstransit-in-net-9a2fcb427c1a
 
 
 
