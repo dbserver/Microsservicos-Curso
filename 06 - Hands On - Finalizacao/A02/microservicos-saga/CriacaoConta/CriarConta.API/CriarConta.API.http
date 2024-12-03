@@ -1,0 +1,6 @@
+@CriarConta.API_HostAddress = http://localhost:5244
+
+POST {{CriarConta.API_HostAddress}}/SolicitacaoContaPJ/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@ContaPF.API_HostAddress = http://localhost:5090
+
+GET {{ContaPF.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
