@@ -396,40 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-# Dia 01 - aula
-# /01 - INTRODUCAO/01 - Apresentacao/
-# /01 - INTRODUCAO/02 - Introducao  a Microservicos/
-# /01 - INTRODUCAO/03 - Arquiteturas baseada em microservicos/
-# /01 - INTRODUCAO/04 - Arquiteturas distribuidas/
-# /01 - INTRODUCAO/05 - Breve conclusao sobre arquiteturas/
-# /01 - INTRODUCAO/06 - Comunicacao Assincrona/
-# /01 - INTRODUCAO/07 - Comunicacao e fluxo para microsevicos/
-/01 - INTRODUCAO/08 -  Exercicio/01 - professor.md
-/01 - INTRODUCAO/08 -  Exercicio/02 - professor.md
-
-# Dia 01
-# /02 - CONCEITOS/
-
-# Dia 02 - Aula
-# /02 - CONCEITOS/01 - Provocacoes/Provovacoes.md
-# /02 - CONCEITOS/02 - EDA/
-# /02 - CONCEITOS/03 - CQRS/
-
-# Dia 02
-# /03 - CONCEITOS 02/
-/02 - CONCEITOS/01 - Provocacoes/Exercicio/professor.md
-/02 - CONCEITOS/04 - Exercicios/professor.md
-
-# Dia 03 - aula
-
-# Dia 03
-/03 - CONCEITOS 02/05 - Ports and Adapters/Exercicio/professor.md
-/03 - CONCEITOS 02/07 - Arquitetura orientada a dominio/Exercicio/professor.md
-
-# Dia 04 - aula
-/04 - RECAPTULANDO CONCEITOS BASICOS/04 - Exercicio/professor.md
-
 /03 - CONCEITOS 02/07 - Arquitetura orientada a dominio/02 - DDD.md
 
 /Exemplos/
