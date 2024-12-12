@@ -1,4 +1,5 @@
-﻿using MassTransit;
+﻿using ContaPF.API.Events;
+using MassTransit;
 using NotificadorCriacaoConta.API.Events;
 
 namespace ContaPJ.API.Components
@@ -15,7 +16,13 @@ namespace ContaPJ.API.Components
         public Task Consume(ConsumeContext<INotificacaoCriacaoContaFalhou> context)
         {
             _logger.LogInformation("Notificação da criação da conta PJ falou  {@Message}", context.Message);
-            return Task.CompletedTask;
+
+            // Para o Saga funcionar, precisamos reverter todos os eventos que acançaram
+            return context.Publish<IValidacaoFalhou>(new
+            {
+                context.Message.IdConta,
+            });
+
         }
     }
 }

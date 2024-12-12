@@ -17,6 +17,9 @@ namespace CriarConta.API.Components
         public Event<IValidacaoOcorrida> ValidacaoOcorrida { get; set; }
         public Event<ICriacaoContaNotificada> CriacaoContaNotificada { get; set; }
 
+        public Event<ICriacaoContaPJFalhou> SolicitacaoContaFalou { get; set; }
+
+
         // Estados do SAGA
         public State CriacaoContaPJSolicitada { get; }
         public State ValidacaoSolicitada { get; }
@@ -28,10 +31,16 @@ namespace CriarConta.API.Components
             InstanceState(x => x.CurrentState, CriacaoContaPJSolicitada, NotificacaoSolicitada, NotificacaoSolicitada);
 
             // Inicialização do estados do SAGA
+            // command
             Event(() => ContaPJSolicitada, context => context.CorrelateById(m => m.Message.IdConta));
+
+            // eventos
             Event(() => ContaPJCriada, context => context.CorrelateById(m => m.Message.IdConta));
             Event(() => ValidacaoOcorrida, context => context.CorrelateById(m => m.Message.IdConta));
             Event(() => CriacaoContaNotificada, context => context.CorrelateById(m => m.Message.IdConta));
+
+            Event(() => SolicitacaoContaFalou, context => context.CorrelateById(m => m.Message.IdConta));
+            
 
             // Inicialização do saga
             Initially(
@@ -74,6 +83,13 @@ namespace CriarConta.API.Components
                 When(CriacaoContaNotificada)
                 .Then(_ => 
                 Console.WriteLine("Conta cadastrada"))
+                .Finalize()
+            );
+
+            DuringAny(
+                When(SolicitacaoContaFalou)
+                .Then(_ =>
+                    Console.WriteLine("Cadastro de conta falhou!"))
                 .Finalize()
             );
 

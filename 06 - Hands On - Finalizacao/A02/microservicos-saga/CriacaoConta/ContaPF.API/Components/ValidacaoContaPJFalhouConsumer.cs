@@ -1,4 +1,5 @@
 ﻿using ContaPF.API.Events;
+using ContaPJ.API.Events;
 using MassTransit;
 
 namespace ContaPJ.API.Components
@@ -15,7 +16,12 @@ namespace ContaPJ.API.Components
         public Task Consume(ConsumeContext<IValidacaoFalhou> context)
         {
             _logger.LogInformation("Criação da conta PJ falou  {@Message}", context.Message);
-            return Task.CompletedTask;
+
+            // Para o Saga funcionar, precisamos reverter todos os eventos que acançaram
+            return context.Publish<ICriacaoContaPJFalhou>(new
+            {
+                context.Message.IdConta,
+            });
         }
     }
 }
